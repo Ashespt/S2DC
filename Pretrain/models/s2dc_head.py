@@ -167,9 +167,8 @@ class S2DCTokenHead(nn.Module):
         self.student = Swin(args,geco=self.geco,cl=self.cl)
         self.teacher = Swin(args,geco=self.geco,cl=self.cl)
         self.dim=dim
-        self.rate_loss = MaximalCodingRateReduction(eps=0.5)
         self.args = args
-        self.criterion = GeCoLoss(args.weight_p2p,args.weight_o2s,args.weight_global,sinkhorn=args.sinkhorn)
+        self.criterion = GeCoLoss(args.weight_p2p,args.weight_p2s,args.weight_global,sinkhorn=args.sinkhorn)
         self.K = self.args.batch_size*exp
         self.num_crops = int((self.args.roi_large//self.args.roi_x)**2)
         num_layer_token_side = [48,24,12,6,3]
