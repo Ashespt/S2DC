@@ -93,7 +93,7 @@ class GeometricLoss(object):
         return torch.mean(torch.stack(losses)),torch.mean(torch.stack(pos_losses)),torch.mean(torch.stack(neg_losses))
 
 class GeCoLoss(torch.nn.Module):
-    def __init__(self,weight_p2p=0.5,weight_o2a=0.5,weight_global=0.5,sinkhorn=False):
+    def __init__(self,weight_p2p=0.5,weight_p2s=0.5,weight_global=0.5,sinkhorn=False):
         super().__init__()
         self.contrast_loss = GeCoContrast()
         self.geco_loss = GeometricLoss(sinkhorn=sinkhorn)
