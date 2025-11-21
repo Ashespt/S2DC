@@ -102,7 +102,7 @@ def get_infer_loader(args):
     print("Dataset 2 Covid 19: number of data: {}".format(len(datalist2)))
     datalist = new_datalist1 + datalist2
     print("Dataset all training: number of data: {}".format(len(datalist)))
-    from .data_check import GeoAugmentation
+    from .data_check2 import GeoAugmentation
     
     train_transforms = Compose([LoadImaged(keys=["image"], image_only=True),
                                 CropForegroundd(keys="image", source_key="image", select_fn=threshold_infer),
@@ -158,10 +158,7 @@ def get_1k_loader(args):
     # print("Dataset 3 LUNA: number of data: {}".format(len(datalist3)))
     datalist = new_datalist1 + datalist2
     print("Dataset all training: number of data: {}".format(len(datalist)))
-    if args.token_head:
-        from .data_check2 import GeoAugmentation
-    else:
-        from .data_check import GeoAugmentation
+    from .data_check2 import GeoAugmentation
     
     train_transforms = Compose([LoadImaged(keys=["image"], image_only=True),
                                 AddChanneld(keys=["image"]),
@@ -243,10 +240,7 @@ def get_10k_loader(args):
     
     datalist = datalist1 + datalist2 + datalist3 + datalist4 + datalist5 + datalist6 + datalist7 + datalist8
     print("Dataset all training: number of data: {}".format(len(datalist)))
-    if args.token_head:
-        from .data_check2 import GeoAugmentation
-    else:
-        from .data_check import GeoAugmentation
+    from .data_check2 import GeoAugmentation
     
     train_transforms = Compose([LoadImaged(keys=["image"], image_only=True),
                                 AddChanneld(keys=["image"]),
