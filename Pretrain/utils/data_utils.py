@@ -102,10 +102,7 @@ def get_infer_loader(args):
     print("Dataset 2 Covid 19: number of data: {}".format(len(datalist2)))
     datalist = new_datalist1 + datalist2
     print("Dataset all training: number of data: {}".format(len(datalist)))
-    if args.token_head:
-        from .data_check2 import GeoAugmentation
-    else:
-        from .data_check import GeoAugmentation
+    from .data_check import GeoAugmentation
     
     train_transforms = Compose([LoadImaged(keys=["image"], image_only=True),
                                 CropForegroundd(keys="image", source_key="image", select_fn=threshold_infer),
