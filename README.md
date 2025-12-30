@@ -7,7 +7,7 @@
 ## Timeline
 * ✅ September 2025: Pretraining code 
 
-* December 2025: Downstream code
+* ✅ December 2025: Downstream code
 
 ## Pretraining
 Following the datasets in [[VoCo]](https://github.com/Luffy03/VoCo). Please change paths in scripts.
